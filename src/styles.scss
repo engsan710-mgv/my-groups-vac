@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+//Colors:
+//#0D1B1E
+//#7798AB
+//#C3DBC5
+//#E8DCB9
+//#F2CEE6
+.app-mgv-link {    /* unvisited link */
+    color: #0000EE;
+    text-decoration: underline;
+}
+.app-mgv-link:link {    /* unvisited link */
+    color: #0000EE;
+    text-decoration: underline;
+}
+.app-mgv-link:visited {    /* visited link */
+    color: #551A8B;
+}
+.app-mgv-link:hover {    /* mouse over link */
+    color: #FF00FF;
+    text-decoration: underline;
+}
+.app-mgv-link:active {    /* active link */
+    color: #0000FF;
+}
