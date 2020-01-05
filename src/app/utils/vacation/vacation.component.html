@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="space-between start" class="base-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="15px">
+      <div></div>
+      <div *ngFor="let day of week_days" >
+        <span>{{day}}</span>
+      </div>
+    </div>
+
+    <div *ngFor="let member of members">
+      <span>{{member}}</span>
+    </div>
+</div>
