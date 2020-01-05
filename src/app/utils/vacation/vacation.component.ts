@@ -8,7 +8,7 @@ import * as constants from '../constants';
 })
 export class VacationComponent implements OnInit {
 
-  week_days:string=constants.WEEK_DAYS;
+  week_days:string[]=constants.WEEK_DAYS;
   members:string[]=['John','Mary','Mac'];
 
   constructor() { }
