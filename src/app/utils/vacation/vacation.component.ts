@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as constants from '../constants';
 
 @Component({
   selector: 'app-vacation',
@@ -8,12 +7,12 @@ import * as constants from '../constants';
 })
 export class VacationComponent implements OnInit {
 
-  week_days:string[]=constants.WEEK_DAYS;
-  members:string[]=['John','Mary','Mac'];
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
+
 
 }

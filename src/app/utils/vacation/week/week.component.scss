@@ -1,0 +1,21 @@
+.week-header {
+  font-weight: bold;
+  min-width: 75px;
+}
+.week-first-column {
+    min-width: 60px;
+}
+.week-after-first-column {
+    min-width: 75px;
+}
+.week-on{
+  background: #7798AB;
+  //min-width: 40px;
+  height: 10px;
+}
+
+.week-off{
+  background: white;
+  //min-width: 40px;
+  height: 10px;
+}

@@ -13,6 +13,8 @@ import { UserComponent } from './pages/user/user.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AboutComponent } from './pages/about/about.component';
 import { VacationComponent } from './utils/vacation/vacation.component';
+import { WeekComponent } from './utils/vacation/week/week.component';
+import { MonthComponent } from './utils/vacation/month/month.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { VacationComponent } from './utils/vacation/vacation.component';
     UserComponent,
     SignupComponent,
     AboutComponent,
-    VacationComponent
+    VacationComponent,
+    WeekComponent,
+    MonthComponent
   ],
   imports: [
     BrowserModule,
