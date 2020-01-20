@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="space-between center" class="base-container-brown">
+  <div *ngFor="let row of table_data; index as r;" fxLayoutGap="4px">
+    <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="15px">
+      <div *ngFor="let col of row; index as c;" fxLayoutGap="4px">
+        <div [ngClass]="{
+          'week-header': r == 1,
+          'week-first-column': c == 1,
+          'week-after-first-column': c > 1,
+          'week-off': col == 'true',
+          'week-on': col == 'false'
+          }"><span *ngIf="r == 1 || c == 0">{{col}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
