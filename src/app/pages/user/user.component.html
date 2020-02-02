@@ -1,5 +1,5 @@
-<div fxLayout="row" fxLayoutAlign="center start" class="base-container">
-  <div class="base-card">
+<div fxLayout="row" fxLayoutAlign="start start" class="base-container">
+  <div class="base-card user-vacation" fxFlex="20" fxFlexOffset="8">
     <mat-card >
       <mat-card-header>
         <mat-card-title>Groups:</mat-card-title>
@@ -12,15 +12,15 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <div class="base-card user-vacation">
+  <div class="base-card user-vacation" fxFlex="80">
     <mat-card >
       <mat-card-header>
         <mat-card-title>Vacation:</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <h2>Group:</h2>
-        <h2>Week: </h2>
-        <app-vacation></app-vacation>
+        <h2>Date:  {{viewing_month}}</h2>
+        <app-vacation [viewing_month]="viewing_month"></app-vacation>
         <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
       </mat-card-content>
     </mat-card>

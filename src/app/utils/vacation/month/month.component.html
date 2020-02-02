@@ -1,1 +1,14 @@
-<p>month works!</p>
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+  <div *ngFor="let week of six_week_days">
+    <div class="month-row">
+
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+
+        <div *ngFor="let day of week; index as d">
+          <app-day [header]=" week_days[d+1] + ', ' + day.getDate() " [member_names]="getMembersOnVacation4Date(day)"></app-day>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

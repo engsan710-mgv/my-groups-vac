@@ -3,19 +3,21 @@
   min-width: 75px;
 }
 .week-first-column {
-    min-width: 60px;
+    min-width: 200px;
 }
 .week-after-first-column {
     min-width: 75px;
 }
 .week-on{
   background: #7798AB;
-  //min-width: 40px;
   height: 10px;
 }
 
 .week-off{
   background: white;
-  //min-width: 40px;
   height: 10px;
+}
+.week-row{
+  padding: 4px;
+  border-bottom: 1px solid gray;
 }
