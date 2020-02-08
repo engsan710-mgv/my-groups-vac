@@ -15,6 +15,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { VacationComponent } from './utils/vacation/vacation.component';
 import { WeekComponent } from './utils/vacation/week/week.component';
 import { MonthComponent } from './utils/vacation/month/month.component';
+import { DayComponent } from './utils/vacation/day/day.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MonthComponent } from './utils/vacation/month/month.component';
     AboutComponent,
     VacationComponent,
     WeekComponent,
-    MonthComponent
+    MonthComponent,
+    DayComponent
   ],
   imports: [
     BrowserModule,
