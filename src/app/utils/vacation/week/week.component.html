@@ -1,18 +1,33 @@
-<div fxLayout="column" fxLayoutAlign="space-between center" class="base-container-brown">
-  <div *ngFor="let row of table_data; index as r;" fxLayoutGap="4px">
-    <div class="week-row">
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
-        <div *ngFor="let col of row; index as c;" fxLayoutGap="4px">
-          <div [ngClass]="{
-            'week-header': r == 0,
-            'week-first-column': c == 0,
-            'week-after-first-column': c > 0,
-            'week-off': col == 'true',
-            'week-on': col == 'false'
-            }"><span *ngIf="r == 0 || c == 0">{{col}}</span>
-          </div>
+<div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Example {{week_data[0]['Member']}}">
+            </mat-form-field>
         </div>
-      </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon (click)="previousWeek()" class="week-icons" >skip_previous</mat-icon>  <span>Week: {{current_week}}</span><mat-icon (click)="nextWeek()" class="week-icons" >skip_next</mat-icon> 
+        </div>
     </div>
-  </div>
+    <table mat-table [dataSource]="dataSource" class="base-container-brown" matSort>
+        <ng-container [matColumnDef]="column" *ngFor="let column of headers">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="element[column] == true" class="week-off">
+                    {{element[column]}}
+                </div>
+                <div *ngIf="element[column] == false" class="week-on">
+                    {{element[column]}}
+                </div>
+                <div *ngIf="element[column] != true && element[column] != false" class="week-first-column">
+                    {{element[column]}}
+                </div>
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="headers"></tr>
+        <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+    </table>
 </div>
