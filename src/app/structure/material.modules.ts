@@ -6,6 +6,8 @@ import {
   MatMenuModule,MatIconModule, MatProgressSpinnerModule,
   MatTabsModule
 } from '@angular/material';
+import {MatSortModule} from '@angular/material/sort';
+
 @NgModule({
   imports: [
   CommonModule,
@@ -18,7 +20,8 @@ import {
   MatMenuModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  MatTabsModule
+  MatTabsModule,
+  MatSortModule
   ],
   exports: [
   CommonModule,
@@ -31,7 +34,8 @@ import {
    MatMenuModule,
    MatIconModule,
    MatProgressSpinnerModule,
-   MatTabsModule
+   MatTabsModule,
+   MatSortModule
    ],
 })
 export class CustomMaterialModule { }

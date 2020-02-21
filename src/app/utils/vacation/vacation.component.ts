@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-vacation',
@@ -6,8 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./vacation.component.scss']
 })
 export class VacationComponent implements OnInit {
-
-  @Input() viewing_month:Date;
 
   constructor() {
 
