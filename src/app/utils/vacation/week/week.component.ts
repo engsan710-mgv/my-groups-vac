@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as constants from '../../constants';
 import { Member, VacationWeek } from '../../data_types';
 
@@ -6,6 +6,7 @@ import { DataService } from '../../../services/data.service';
 
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { DateService } from '../../../services/date.service';
 
 
 @Component({
@@ -23,14 +24,19 @@ export class WeekComponent implements OnInit {
 
     @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-    @Input() viewing_month: Date;
+    viewing_month: Date;
     first_day_of_week_date: Date;
 
-    constructor(private data_service: DataService) {
+    constructor(private data_service: DataService,
+                private date_service: DateService
+            ) {
     }
 
     ngOnInit() {
         this.members = this.data_service.getData();
+        this.date_service.viewing_date.subscribe( date =>{
+            this.viewing_month = date;
+        })
         this.dataSource = new MatTableDataSource(this.week_data);
         this.setHeaders();
         this.getDate4FirstWeekDay();
@@ -111,7 +117,7 @@ export class WeekComponent implements OnInit {
     
     previousWeek(){
         let current_day = 6 + this.viewing_month.getDay();
-        this.viewing_month = new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() - current_day )
+        this.date_service.setDate(new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() - current_day ));
         this.current_week = this.getWeek();
         this.getDate4FirstWeekDay();
         this.generate_table_data();
@@ -120,8 +126,8 @@ export class WeekComponent implements OnInit {
     
     nextWeek(){
         let current_day = 8 - this.viewing_month.getDay();
-        this.viewing_month = new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() + current_day )
-                this.current_week = this.getWeek();
+        this.date_service.setDate(new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() + current_day ));
+        this.current_week = this.getWeek();
         this.getDate4FirstWeekDay();
         this.generate_table_data();
         console.log('next ', this.viewing_month);

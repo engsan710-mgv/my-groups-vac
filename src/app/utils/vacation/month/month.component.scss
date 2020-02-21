@@ -1,7 +1,20 @@
+.month-controls-bar{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 .month-row{
   padding: 4px;
   border-bottom: 4px solid gray;
   background: #E8DCB9;
   padding-bottom: 2px;
   margin-bottom: 2px;
+}
+
+.month-icons{
+    cursor: pointer;
+}
+
+.month-icons:hover{
+    background: gray;
 }
