@@ -27,13 +27,9 @@
 }
 .base-container{
   background: #C3DBC5;
-  flex-shrink: 0;
-  flex-grow: 1;
-}
-.base-container-brown{
-  background: #E8DCB9;
 }
 .base-card{
   width: 500px;
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }

@@ -9,13 +9,9 @@ import { CustomMaterialModule } from './structure/material.modules';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { UserComponent } from './pages/user/user.component';
+import { UserComponent } from './utils/user/user.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AboutComponent } from './pages/about/about.component';
-import { VacationComponent } from './utils/vacation/vacation.component';
-import { WeekComponent } from './utils/vacation/week/week.component';
-import { MonthComponent } from './utils/vacation/month/month.component';
-import { DayComponent } from './utils/vacation/day/day.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +19,7 @@ import { DayComponent } from './utils/vacation/day/day.component';
     LoginComponent,
     UserComponent,
     SignupComponent,
-    AboutComponent,
-    VacationComponent,
-    WeekComponent,
-    MonthComponent,
-    DayComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule,

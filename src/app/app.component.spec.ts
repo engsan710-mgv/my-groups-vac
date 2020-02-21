@@ -1,14 +1,12 @@
-/*import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { CustomMaterialModule } from './structure/material.modules';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        CustomMaterialModule
+        RouterTestingModule
       ],
       declarations: [
         AppComponent
@@ -34,4 +32,4 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('my-groups-vac app is running!');
   });
-});*/
+});
