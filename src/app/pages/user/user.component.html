@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutAlign="start start" class="base-container">
+    <div class="base-card user-vacation" fxFlex="20" fxFlexOffset="8">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Groups:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <ul>
+                    <li>
+                    <a mat-button (click)="selectGroup('work')" class="user-group" 
+                        [ngClass]="{ 'user-group-selected': selected_group == 'work' }">
+                        work
+                    </a>
+                    </li>
+                    <li>
+                    <a mat-button (click)="selectGroup('daycare')" class="user-group" 
+                        [ngClass]="{ 'user-group-selected': selected_group == 'daycare' }">
+                        daycare
+                    </a>
+                    </li>
+                </ul>
+                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="base-card user-vacation" fxFlex="80">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Vacation:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h2>Group: {{selected_group}}</h2>
+                <h2>Date: {{viewing_month.toDateString()}}</h2>
+                <app-vacation></app-vacation>
+                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

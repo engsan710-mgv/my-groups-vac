@@ -1,15 +1,14 @@
 /*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignupComponent } from './signup.component';
-import { CustomMaterialModule } from '../../structure/material.modules';
+import { WeekComponent } from './week.component';
 
-describe('SignupComponent', () => {
-  let component: SignupComponent;
-  let fixture: ComponentFixture<SignupComponent>;
+describe('WeekComponent', () => {
+  let component: WeekComponent;
+  let fixture: ComponentFixture<WeekComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
+      declarations: [ WeekComponent ],
       imports: [ CustomMaterialModule
         ]
     })
@@ -17,7 +16,7 @@ describe('SignupComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignupComponent);
+    fixture = TestBed.createComponent(WeekComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

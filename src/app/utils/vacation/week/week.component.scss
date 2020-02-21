@@ -1,0 +1,43 @@
+.week-table-container{
+    width: 100%;
+}
+
+.mat-header-cell{
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    min-width: 100px;
+    padding: 4px;
+}
+
+.mat-cell{
+    padding: 4px;
+}
+
+.week-first-column {
+    min-width: 200px;
+}
+
+.week-on{
+  background: #7798AB;
+  height: 12px;
+  font-size: 10px;
+  max-width: 50px;
+  color: #7798AB;
+}
+
+.week-off{
+  background: white;
+  height: 12px;
+  font-size: 10px;
+  max-width: 50px;
+  color: white;
+}
+
+.week-icons{
+    cursor: pointer;
+}
+
+.week-icons:hover{
+    background: gray;
+}
