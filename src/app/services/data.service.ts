@@ -12,12 +12,15 @@ export class DataService {
 
     constructor() { }
 
-    getMembersOnVacation4Date(day: Date): string[] {
+    getMembersOnVacation4Date(day: Date, filter: string ): string[] {
         let vac_members: string[] = [];
         this.members.forEach(member => {
             let vac_index = member.vacation.findIndex(d => d.getDate() == day.getDate() && d.getMonth() == day.getMonth());
             if (vac_index >= 0) {
-                vac_members.push(member.first_name + ' ' + member.last_name);
+                let member_name = member.first_name + ' ' + member.last_name;
+                if( filter == '' || member_name.toLowerCase().indexOf(filter.toLowerCase()) >=0){
+                    vac_members.push(member_name);
+                }
             }
         });
         return vac_members;

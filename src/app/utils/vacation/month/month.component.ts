@@ -15,6 +15,7 @@ export class MonthComponent implements OnInit {
     viewing_month: Date;
     six_week_days: Date[][];
     current_Month: string;
+    filter: string ='';
 
     constructor(private data_service: DataService,
         private date_service: DateService) {
@@ -24,7 +25,7 @@ export class MonthComponent implements OnInit {
         this.data_service.getData();
         this.date_service.viewing_date.subscribe(date => {
             this.viewing_month = date;
-            this.current_Month = constants.MONTHS[this.viewing_month.getMonth()];
+            this.current_Month = constants.MONTHS[this.viewing_month.getMonth()]; 
             this.getNumberOfWeeks(this.viewing_month);
         });
 
@@ -44,7 +45,7 @@ export class MonthComponent implements OnInit {
             previous_month = 11;
             previous_year = year - 1;
         }
-        let previous_number_of_days = this.getNumberOfDaysInMonth(previous_year, previous_month);
+        let previous_number_of_days = this.date_service.getNumberOfDaysInMonth(previous_year, previous_month);
 
         this.six_week_days = [];
         let total_days = (first_day + number_of_days) <= 35 ? 35 : 42;
@@ -74,37 +75,24 @@ export class MonthComponent implements OnInit {
         }
     }
 
-    getNumberOfDaysInMonth(year: number, month: number): number {
-        let number_of_days = new Date(year, month + 1, 0).getDate();
-        return number_of_days;
-    }
+
 
     getMembersOnVacation4Date(day: Date): string[] {
-        return this.data_service.getMembersOnVacation4Date(day);
+        
+        return this.data_service.getMembersOnVacation4Date(day, this.filter);
     }
 
     previousMonth(){
-        let current_year = this.viewing_month.getFullYear();
-        let current_month = this.viewing_month.getMonth();
-        if( current_month == 0 ){
-            current_year = current_year - 1;
-            current_month = 11;
-        }else{
-            current_month = current_month - 1;
-        }
-        this.date_service.setDate(new Date( current_year, current_month, 1 ));
+        this.date_service.setDate(this.date_service.previousMonth(this.viewing_month));
     }
     
     nextMonth(){
-        let current_year = this.viewing_month.getFullYear();
-        let current_month = this.viewing_month.getMonth();
-        if( current_month == 11 ){
-            current_year = current_year + 1;
-            current_month = 0;
-        }else{
-            current_month = current_month + 1;
-        }
-        this.date_service.setDate(new Date( current_year, current_month, 1 ));
+        this.date_service.setDate(this.date_service.nextMonth(this.viewing_month));
+    }
+    
+    applyFilter(event: Event) {
+        this.filter = (event.target as HTMLInputElement).value;
+        console.log( "filter ", this.filter );
     }
 
 }
