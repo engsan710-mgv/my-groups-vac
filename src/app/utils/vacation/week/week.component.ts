@@ -38,20 +38,10 @@ export class WeekComponent implements OnInit {
             this.viewing_month = date;
         })
         this.dataSource = new MatTableDataSource(this.week_data);
-        this.setHeaders();
-        this.getDate4FirstWeekDay();
+        this.first_day_of_week_date = this.date_service.getDate4FirstWeekDay(this.viewing_month);
         this.generate_table_data();
         this.current_week = this.getWeek();
         //this.dataSource.sort = this.sort;
-    }
-
-    getDate4FirstWeekDay() {
-        let year = this.viewing_month.getFullYear();
-        let month = this.viewing_month.getMonth();
-        let day = this.viewing_month.getDate();
-        let week_day = this.viewing_month.getDay();
-
-        this.first_day_of_week_date = new Date(year, month, day - week_day);
     }
 
     get_updated_date(add_2_current: number): Date {
@@ -65,8 +55,11 @@ export class WeekComponent implements OnInit {
         return vac_day > -1;
     }
     
-    setHeaders(){
-        let week_days = constants.WEEK_DAYS;
+    setHeaders(day_number:number){
+        let week_days = Object.assign([], constants.WEEK_DAYS);
+        for(let i = 0; i < week_days.length; i++){
+            week_days[i] = week_days[i] +", " + (day_number+i); 
+        }
         week_days.splice(0, 0, 'Member');
         this.headers = week_days;
     }
@@ -74,6 +67,7 @@ export class WeekComponent implements OnInit {
     generate_table_data(): void {
 
         this.week_data=[];
+        this.setHeaders(this.first_day_of_week_date.getDate());
 
         this.members.forEach(member => {
             let row: VacationWeek = {
@@ -119,7 +113,7 @@ export class WeekComponent implements OnInit {
         let current_day = 6 + this.viewing_month.getDay();
         this.date_service.setDate(new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() - current_day ));
         this.current_week = this.getWeek();
-        this.getDate4FirstWeekDay();
+        this.first_day_of_week_date = this.date_service.getDate4FirstWeekDay(this.viewing_month);
         this.generate_table_data();
         console.log('prev ', this.viewing_month);
     }
@@ -128,7 +122,7 @@ export class WeekComponent implements OnInit {
         let current_day = 8 - this.viewing_month.getDay();
         this.date_service.setDate(new Date( this.viewing_month.getFullYear(), this.viewing_month.getMonth(), this.viewing_month.getDate() + current_day ));
         this.current_week = this.getWeek();
-        this.getDate4FirstWeekDay();
+        this.first_day_of_week_date = this.date_service.getDate4FirstWeekDay(this.viewing_month);
         this.generate_table_data();
         console.log('next ', this.viewing_month);
     }

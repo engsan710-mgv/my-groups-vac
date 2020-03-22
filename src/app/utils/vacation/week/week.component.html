@@ -7,7 +7,9 @@
             </mat-form-field>
         </div>
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-icon (click)="previousWeek()" class="week-icons" >skip_previous</mat-icon>  <span>Week: {{current_week}}</span><mat-icon (click)="nextWeek()" class="week-icons" >skip_next</mat-icon> 
+            <mat-icon (click)="previousWeek()" class="week-icons" >skip_previous</mat-icon>  
+            <span>Week: {{current_week}}</span>
+            <mat-icon (click)="nextWeek()" class="week-icons" >skip_next</mat-icon> 
         </div>
     </div>
     <table mat-table [dataSource]="dataSource" class="base-container-brown" matSort>

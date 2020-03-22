@@ -1,8 +1,17 @@
-<div fxLayout="column" fxLayoutAlign="space-between start">
-    <div fxLayout="row" fxLayoutAlign="space-between center" class="month-controls-bar">
-        <mat-icon (click)="previousMonth()" class="month-icons">skip_previous</mat-icon> 
-        <span>Month: {{current_Month}}</span>
-        <mat-icon (click)="nextMonth()" class="month-icons">skip_next</mat-icon>
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Example Mary Smith">
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="month-controls-bar">
+            <mat-icon (click)="previousMonth()" class="month-icons">skip_previous</mat-icon>
+            <span>Month: {{current_Month}}</span>
+            <mat-icon (click)="nextMonth()" class="month-icons">skip_next</mat-icon>
+        </div>
     </div>
 
     <div fxLayout="column" fxLayoutAlign="space-between stretch">
